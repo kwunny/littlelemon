@@ -123,6 +123,48 @@ a {
     border-top-right-radius: 8px;
     border-top-left-radius: 8px;
 }
+
+.testimonialheader {
+    background: #333333;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    /* flex-flow: column; */
+    flex-direction: row;
+    height: 100%;
+    gap: 5px;
+}
+.testimonials {
+    background: #333333;
+    padding: 10px;
+    padding-top: 0px;
+    display: flex;
+    justify-content: center;
+    /* flex-flow: column; */
+    flex-direction: row;
+    height: 100%;
+    gap: 5px;
+}
+.testprofile {
+    display: flex;
+    justify-content: flex-start;
+    /* flex-flow: column; */
+    flex-direction: row;
+    gap: 2px;
+    padding: 5px;
+}
+.testprofile > div {
+    /*border: 1px solid #ff0000;*/
+}
+.profileimg {
+    width: 80px;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+}
+.testquote {
+    padding: 10px;
+    padding-top: 0px;
+}
 /*END of HERO/Highlights/Review*/
 
 /*styling*/
@@ -180,6 +222,10 @@ li {
 h1 {
     line-height: 0px;
 }
+h2 {
+    line-height: 0px;
+    font-size: 1.2rem;
+}
 
 
 /*RESPONSIVE*/
@@ -187,7 +233,7 @@ h1 {
 /* For tablets: */
     .highlighttitle-containe, .higheader, 
     .highlight, .hero, .main-container, 
-    .header-container {
+    .header-container, .testimonials {
         display: flex;
         justify-content: space-between;
         /* flex-flow: column; */
