@@ -37,7 +37,7 @@ a {
 }
 .hero {
     background: #495E57;
-    padding: 10px;
+    padding: 15px;
     display: flex;
     justify-content: center;
     /* flex-flow: column; */
@@ -57,7 +57,7 @@ a {
 
 .highlight {
     background: #edefee;
-    padding: 10px;
+    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     /* flex-flow: column; */
@@ -68,7 +68,7 @@ a {
 
 .highheader {
     background: #edefee;
-    padding-top: 10px;
+    padding: 10px;
     display: flex;
     justify-content: center;
     /* flex-flow: column; */
@@ -136,7 +136,7 @@ a {
 }
 .testimonials {
     background: #333333;
-    padding: 10px;
+    padding-bottom: 20px;
     padding-top: 0px;
     display: flex;
     justify-content: center;
@@ -164,6 +164,7 @@ a {
 .testquote {
     padding: 10px;
     padding-top: 0px;
+    line-height: 15px;
 }
 /*END of HERO/Highlights/Review*/
 
