@@ -6,12 +6,12 @@ import Picover from "./icons_assets/aboutover.jpg";
 const About = () => {
     return (
       <>
-        <div class="about">
-        <div class="leftbox paddingtop">
-                <div class="titlecard black">
+        <div className="about">
+        <div className="leftbox paddingtop">
+                <div className="titlecard black">
                   <h1>Little Lemon</h1>
                 </div>
-                <div class="herodesc black">
+                <div className="herodesc black">
                     <p>Chicago</p>
                     <p>We are a family owned
                     Mediterranean restaurant,
@@ -19,13 +19,13 @@ const About = () => {
                     served with a modern twist.</p>
                 </div>
             </div>
-            <div class="rightbox">
-                <div class="images-container">
-                    <div class="aboutimg">
-                        <img className="picunder-img" src = { Picunder } alt = "About Image" class="aboutimg aboutbg"/>
+            <div className="rightbox">
+                <div className="images-container">
+                    <div className="aboutimg">
+                        <img src = { Picunder } alt = "About" className="aboutimg aboutbg"/>
                     </div>
-                    <div class="aboutimg">
-                        <img className="picunder-img" src = { Picover } alt = "About Image" class="aboutimg"/>
+                    <div className="aboutimg">
+                        <img src = { Picover } alt = "About" className="aboutimg"/>
                     </div>
                 </div>
                 

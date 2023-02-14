@@ -8,17 +8,23 @@ import Footer from './components/Footer.js';
 function App() {
   return (
     <>
-      <div class="flex-container">
-        <div class="headerbox">
-          <div class="header-container">
-            <div class="logobox"><Header /></div>
-            <div class="navbox"><Nav /></div>
+      <div className="flex-container">
+        <div className="headerbox">
+          <div className="header-container">
+            <div className="logobox">
+              <Header />
+            </div>
+            <div className="navbox">
+              <Nav />
+            </div>
           </div>
         </div>
-        <div class="mainbox">
+        <div className="mainbox">
           <Main />
         </div>
-        <div class="footerbox"><Footer /></div>
+        <div className="footerbox">
+          <Footer />
+        </div>
       </div>
     </>
   );

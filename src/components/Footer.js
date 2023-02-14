@@ -5,13 +5,13 @@ import "./styles/style.css";
 const Footer = () => {
     return (
       <footer>
-        <div class="footer-container">
-          <div class="logobox-footer">
-            <img className="footerlogo-img" src = { Logo } alt = "Footer Logo" class="footerlogo"/>
+        <div className="footer-container">
+          <div className="logobox-footer">
+            <img src = { Logo } alt = "Footer Logo" className="footerlogo"/>
           </div>
-          <div class="footerbox-footer">
-            <div class="footer-content gray">
-              <div class="footer1">
+          <div className="footerbox-footer">
+            <div className="footer-content gray">
+              <div className="footer1">
               <ul>
                   <li><h2>Navigation</h2></li>
                   <li><a href="#home">Home </a></li>
@@ -22,7 +22,7 @@ const Footer = () => {
                   <li><a href="#about">Login </a></li>
                 </ul>
               </div>
-              <div class="footer2">
+              <div className="footer2">
                 <ul>
                   <li><h2>Contact</h2></li>
                   <li>444 Winkleworth Ave, Winklecity, WinkleState 04232</li>
@@ -30,7 +30,7 @@ const Footer = () => {
                   <li>Email: littlelemon@lemonjuice.com</li>
                 </ul>
               </div>
-              <div class="footer3">
+              <div className="footer3">
                 <ul>
                   <li><h2>Socials</h2></li>
                   <li>Instagram</li>

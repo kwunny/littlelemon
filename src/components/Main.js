@@ -8,7 +8,7 @@ import About from './About.js';
 const Main = () => {
     return (
       <main>
-        <div class="main-container">
+        <div className="main-container">
             <Hero />
             <Highlight />
             <Testimonial />

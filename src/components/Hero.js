@@ -5,12 +5,12 @@ import Heroimg from "./icons_assets/restaurantchefB.jpg";
 const Hero = () => {
     return (
         <>
-        <div class="hero">
-            <div class="leftbox">
-                <div class="titlecard yellow">
+        <div className="hero">
+            <div className="leftbox">
+                <div className="titlecard yellow">
                   <h1>Little Lemon</h1>
                 </div>
-                <div class="herodesc white">
+                <div className="herodesc white">
                     <p>Chicago</p>
                     <p>We are a family owned
                     Mediterranean restaurant,
@@ -18,8 +18,8 @@ const Hero = () => {
                     served with a modern twist.</p>
                 </div>
             </div>
-            <div class="rightbox">
-                <img className="hero-img" src = { Heroimg } alt = "Hero Image" class="heroimg"/>
+            <div className="rightbox">
+                <img src = { Heroimg } alt = "Hero" className="heroimg"/>
             </div>
         </div>
         </>
