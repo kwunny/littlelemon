@@ -257,6 +257,26 @@ a {
 }
 /*end of styling*/
 
+/*BUTTON*/
+button {
+    outline: 0;
+    border-width: 0;
+    border-radius: 12px;
+    padding: 5px 15px;
+    box-shadow: 1px 1px 1px #333333;
+    font-weight: bold;
+}
+.btnyellow {
+    background: #F4CE14;
+}
+.btnorder {
+    margin-top: 8px;
+    background: #333333;
+    font-size: 0.8rem;
+    
+}
+/*END BUTTON*/
+
 .logo {
     background-image:url("../icons_assets/logo.jpg");
     display: block;

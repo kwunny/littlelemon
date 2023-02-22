@@ -3,13 +3,14 @@ import "./styles/style.css";
 import Special1 from "./icons_assets/bruchetta.svg";
 import Special2 from "./icons_assets/greeksalad.jpg";
 import Special3 from "./icons_assets/lemondessert.jpg";
+import { Outlet, Link } from 'react-router-dom';
 
 const Highlight = () => {
     return (
         <>
         <div className="highheader black">
             <div className="leftbox"><h1>Highlights</h1></div>
-            <div className="rightbox textright">Order Online</div>
+            <div className="rightbox textright"><button class="btnorder gray"><Link to="/booking">Order Online</Link></button></div>
         </div>
         <div className="highlight">
         <div className="box1">

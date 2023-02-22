@@ -4,6 +4,7 @@ import Nav from './components/Nav.js';
 import Header from './components/Header.js';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
+import Booking from './components/Booking.js';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
         <div className="mainbox">
         <Routes>
             <Route path="/" element={<Main />} />
-            <Route path="/booking" element={<h1>Hi</h1>} />
+            <Route path="/booking" element={<Booking />} />
           </Routes>
         </div>
         <div className="footerbox">
