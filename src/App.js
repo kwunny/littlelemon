@@ -5,6 +5,7 @@ import Header from './components/Header.js';
 import Main from './components/Main.js';
 import Footer from './components/Footer.js';
 import Booking from './components/Booking.js';
+import ConfirmedBooking from './components/ConfirmedBooking.js';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Routes>
             <Route path="/" element={<Main />} />
             <Route path="/booking" element={<Booking />} />
+            <Route path="/confirmed" element={<ConfirmedBooking />} />
           </Routes>
         </div>
         <div className="footerbox">

@@ -1,6 +1,7 @@
 import React, { useState, useReducer, useEffect } from 'react';
 
-const BookingForm = () => {
+const BookingForm = ({ navigate }) => {
+    const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [time, setTime] = useState('');
     const [guests, setGuests] = useState(1);
@@ -40,6 +41,10 @@ const BookingForm = () => {
         setTime(event.target.value);
     };
 
+    const handleNameChange = (event) => {
+        setName(event.target.value);
+    };
+
     const handleGuestsChange = (event) => {
         setGuests(parseInt(event.target.value));
     };
@@ -48,8 +53,27 @@ const BookingForm = () => {
         setOccasion(event.target.value);
     };
 
+    const handleSubmit = () => {
+        const formData = {
+            name,
+            date,
+            time,
+            guests,
+            occasion,
+        };
+        submitForm(formData); // call submitForm with form data
+    };
+
     return (
-    <form>
+    <>
+    <form onSubmit={handleSubmit}>
+        <label htmlFor="name">Your Name</label>
+        <input
+            value={name}
+            onChange={handleNameChange}
+            type="text"
+            id="name"
+          />
         <label htmlFor="res-date">Choose date</label>
         <input type="date" id="res-date" value={date} onChange={handleDateChange} />
         <label htmlFor="res-time">Choose time</label>
@@ -73,8 +97,10 @@ const BookingForm = () => {
         <option>Birthday</option>
         <option>Anniversary</option>
         </select>
-        <input type="submit" value="Make Your reservation" className="button" />
+        <input type="submit" className="button" value="Make Your reservation" />
     </form>
+
+    </>
     );
 };
 
