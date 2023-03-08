@@ -277,6 +277,10 @@ button {
 }
 /*END BUTTON*/
 
+.body1 {
+    line-height: 5px;
+    font-size: 1.2rem;
+}
 .logo {
     background-image:url("../icons_assets/logo.jpg");
     display: block;

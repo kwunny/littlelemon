@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import ConfirmedBooking from './ConfirmedBooking.js';
 
 const BookingForm = ({ navigate }) => {
   const [availableTimes, setAvailableTimes] = useState([]);
@@ -43,7 +44,15 @@ const BookingForm = ({ navigate }) => {
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
           setSubmitting(false);
-          navigate('/confirmed');
+          navigate('/confirmed', {
+            state: {
+              name: values.name,
+              date: values.date,
+              time: values.time,
+              guests: values.guests,
+              occasion: values.occasion
+            }
+          });
         }, 400);
       }}
     >
@@ -81,7 +90,7 @@ const BookingForm = ({ navigate }) => {
           </Field>
           <ErrorMessage name="occasion" />
 
-          <button type="submit" className="button" disabled={!formik.isValid || formik.isSubmitting}>Make Your reservation</button>
+          <button aria-label="send" type="submit" className="button" disabled={!formik.isValid || formik.isSubmitting}>Make Your reservation</button>
         </Form>
       )}
     </Formik>

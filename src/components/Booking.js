@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import "./styles/form.css";
 import BookingForm from './BookingForm.js';
-import ConfirmedBooking from './ConfirmedBooking.js';
 import { useNavigate } from "react-router-dom";
 import { Outlet, Link } from 'react-router-dom';
 
