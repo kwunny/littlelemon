@@ -1,107 +1,91 @@
-import React, { useState, useReducer, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 
 const BookingForm = ({ navigate }) => {
-    const [name, setName] = useState('');
-    const [date, setDate] = useState('');
-    const [time, setTime] = useState('');
-    const [guests, setGuests] = useState(1);
-    const [occasion, setOccasion] = useState('');
+  const [availableTimes, setAvailableTimes] = useState([]);
 
-    const initializeTimes = async () => {
-        const response = await fetch('https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js');
-        const api = await response.text();
-        const fetchData = new Function(api + '; return fetchAPI;')();
-        const availableTimes = fetchData(new Date());
-        dispatch({ type: 'UPDATE_TIMES', availableTimes });
-    };
+  const initializeTimes = async (date) => {
+    const response = await fetch(`https://raw.githubusercontent.com/Meta-Front-End-Developer-PC/capstone/master/api.js`);
+    const api = await response.text();
+    const fetchData = new Function(api + '; return fetchAPI;')();
+    const availableTimes = fetchData(new Date(date));
+    setAvailableTimes(availableTimes);
+  };
 
-    const updateTimes = (state, action) => {
-        switch (action.type) {
-        case 'UPDATE_TIMES':
-        return action.availableTimes;
-        default:
-        return state;
-        }
-    };
+  useEffect(() => {
+    setAvailableTimes([]);
+  }, []);
 
-    const [availableTimes, dispatch] = useReducer(updateTimes, []);
+  return (
+    <Formik
+      initialValues={{
+        name: '',
+        date: '',
+        time: '',
+        guests: 1,
+        occasion: ''
+      }}
+      validationSchema={Yup.object({
+        name: Yup.string()
+          .required('Name Required'),
+        date: Yup.date()
+          .required('Date Required'),
+        time: Yup.string()
+          .required('Time Required'),
+        guests: Yup.number()
+          .required('Number of Guests Required')
+          .min(1, 'Must be at least 1 guest')
+          .max(10, 'Must be at most 10 guests'),
+        occasion: Yup.string()
+          .required('Occasion Required')
+      })}
+      onSubmit={(values, { setSubmitting }) => {
+        setTimeout(() => {
+          setSubmitting(false);
+          navigate('/confirmed');
+        }, 400);
+      }}
+    >
+      {formik => (
+        <Form>
+          <label htmlFor="name">Your Name</label>
+          <Field type="text" id="name" name="name" />
+          <ErrorMessage name="name" />
 
-    useEffect(() => {
-    if (date) {
-        initializeTimes();
-    }
-    }, [date]);
+          <label htmlFor="date">Choose date</label>
+          <Field type="date" id="date" name="date" onChange={(e) => {
+            formik.setFieldValue('date', e.target.value);
+            initializeTimes(e.target.value);
+          }} />
+          <ErrorMessage name="date" />
 
-    const handleDateChange = (event) => {
-        setDate(event.target.value);
-        setTime('');
-    };
-
-    const handleTimeChange = (event) => {
-        setTime(event.target.value);
-    };
-
-    const handleNameChange = (event) => {
-        setName(event.target.value);
-    };
-
-    const handleGuestsChange = (event) => {
-        setGuests(parseInt(event.target.value));
-    };
-
-    const handleOccasionChange = (event) => {
-        setOccasion(event.target.value);
-    };
-
-    const handleSubmit = () => {
-        const formData = {
-            name,
-            date,
-            time,
-            guests,
-            occasion,
-        };
-        submitForm(formData); // call submitForm with form data
-    };
-
-    return (
-    <>
-    <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Your Name</label>
-        <input
-            value={name}
-            onChange={handleNameChange}
-            type="text"
-            id="name"
-          />
-        <label htmlFor="res-date">Choose date</label>
-        <input type="date" id="res-date" value={date} onChange={handleDateChange} />
-        <label htmlFor="res-time">Choose time</label>
-        <select id="res-time" value={time} onChange={handleTimeChange} disabled={!date}>
+          <label htmlFor="time">Choose time</label>
+          <Field as="select" id="time" name="time" disabled={!formik.values.date}>
+            <option value="">Select a time</option>
             {availableTimes.map((time) => (
-            <option key={time}>{time}</option>
+              <option key={time}>{time}</option>
             ))}
-        </select>
-        <label htmlFor="guests">Number of guests</label>
-        <input
-            type="number"
-            placeholder="1"
-            min="1"
-            max="10"
-            id="guests"
-            value={guests}
-            onChange={handleGuestsChange}
-        />
-        <label htmlFor="occasion">Occasion</label>
-        <select id="occasion" value={occasion} onChange={handleOccasionChange}>
-        <option>Birthday</option>
-        <option>Anniversary</option>
-        </select>
-        <input type="submit" className="button" value="Make Your reservation" />
-    </form>
+          </Field>
+          <ErrorMessage name="time" />
 
-    </>
-    );
+          <label htmlFor="guests">Number of guests</label>
+          <Field type="number" id="guests" name="guests" />
+          <ErrorMessage name="guests" />
+
+          <label htmlFor="occasion">Occasion</label>
+          <Field as="select" id="occasion" name="occasion">
+            <option value="">Select an occasion</option>
+            <option value="Birthday">Birthday</option>
+            <option value="Anniversary">Anniversary</option>
+          </Field>
+          <ErrorMessage name="occasion" />
+
+          <button type="submit" className="button" disabled={!formik.isValid || formik.isSubmitting}>Make Your reservation</button>
+        </Form>
+      )}
+    </Formik>
+  );
 };
 
 export default BookingForm;

@@ -40,7 +40,7 @@ const Booking = () => {
       <div className="formbox">
         <div className="reserveform">
         
-        <BookingForm naviagte={navigate} />
+        <BookingForm navigate={navigate} />
         
         </div>
         <div className="reservetable"></div>
